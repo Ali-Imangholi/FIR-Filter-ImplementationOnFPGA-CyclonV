@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Oct 21 00:29:53 2021
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : FIRfilter_Len_50_Width_8_
+Top-level Entity Name : FIRfilter_Len_50_Width_8_
+Family : Cyclone II
+Total logic elements : 827
+    Total combinational functions : 426
+    Dedicated logic registers : 477
+Total registers : 477
+Total pins : 34
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 1
+Total PLLs : 0

@@ -1,0 +1,8 @@
+
+State Machine - |FIRfilter_Len_100_Width_8_|CU:cu|presentState
+Name presentState.calculation presentState.acceptInput presentState.start presentState.resetSTATE presentState.endProcess 
+presentState.resetSTATE 0 0 0 0 0 
+presentState.start 0 0 1 1 0 
+presentState.acceptInput 0 1 0 1 0 
+presentState.calculation 1 0 0 1 0 
+presentState.endProcess 0 0 0 1 1 

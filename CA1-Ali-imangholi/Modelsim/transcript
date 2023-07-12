@@ -1,0 +1,31 @@
+# Compile of coefficient_Rom.v was successful.
+# Compile of counter.v was successful.
+# Compile of CU.v was successful.
+# Compile of DP.v was successful.
+# Compile of register.v was successful.
+# Compile of registerFile.v was successful.
+# Compile of serialFIRfilter.v was successful.
+# Compile of sign_ext_6b.v was successful.
+# Compile of signed_adder.v was successful.
+# Compile of signed_multiply.v was successful.
+# Compile of testbench.v was successful.
+# 11 compiles, 0 failed with no errors.
+vsim work.testbench
+# vsim work.testbench 
+# Start time: 01:34:46 on Oct 21,2021
+# Loading work.testbench
+# Loading work.serialFIRfilter
+# Loading work.DP
+# Loading work.registerFile
+# Loading work.coefficients_Rom
+# Loading work.counter
+# Loading work.signed_multiply
+# Loading work.signed_adder
+# Loading work.register
+# Loading work.sign_ext_6b
+# Loading work.CU
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (64) for port 'FIR_input'. The port definition is at: C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/serialFIRfilter.v(6).
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/topModule File: C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/testbench.v Line: 27
+quit -sim
+# End time: 01:34:56 on Oct 21,2021, Elapsed time: 0:00:10
+# Errors: 0, Warnings: 3

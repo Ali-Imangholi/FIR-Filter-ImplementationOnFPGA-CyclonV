@@ -1,0 +1,5 @@
+Warning (10268): Verilog HDL information at registerFile.v(17): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at LAB1_top_Controller.v(131): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at LAB1_top_Controller.v(158): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at LAB1_top_Controller.v(12): object "FIR_Input" differs only in case from object "FIR_input" in the same scope
+Warning (10268): Verilog HDL information at async_receiver.v(20): always construct contains both blocking and non-blocking assignments

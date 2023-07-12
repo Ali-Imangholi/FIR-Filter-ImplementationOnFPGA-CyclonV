@@ -1,0 +1,167 @@
+module LAB1_top_Controller
+#(parameter WIDTH=16, parameter OUT_WIDTH=38)
+(
+input clk,
+input LAB1_top_Controller_rst,
+input data_ready,
+input Output_Valid_FIR,
+input busy,
+input [7:0] RXD, //output Reciver
+input [OUT_WIDTH-1:0] FIR_Output,
+output reg TXD_start,
+output [WIDTH-1:0] FIR_Input,
+output reg Input_Valid_FIR,
+output reg [7:0]TXD //input transmitter
+);
+
+
+
+reg [WIDTH-1:0] RX_reg;
+
+reg RX_reg_ready;
+
+
+
+
+reg [WIDTH-1:0]FIR_input;
+
+//RX
+reg [3:0] nextState_RX, presentState_RX;
+
+//FIR
+reg [3:0] nextState_FIR, presentState_FIR;
+
+//TX
+reg [3:0] nextState_TX, presentState_TX;
+
+
+
+
+parameter [3:0] 
+	
+				//RX
+				idel_RX = 4'b0000,
+				recive_1_RX = 4'b0001,
+				recive_2_RX = 4'b0010,
+				wait_1_RX = 4'b0011,
+				
+				//FIR
+				idel_FIR = 4'b0100,
+				inputValidation_FIR = 4'b0101,
+				calculation_FIR = 4'b0110,
+				
+				//TX
+				idel_TX = 4'b0111,
+				send_1_TX = 4'b1000,
+				send_2_TX = 4'b1001,
+				wait_1_TX = 4'b1010;
+
+
+//RX
+always@(posedge clk, posedge LAB1_top_Controller_rst)
+begin 
+	if(LAB1_top_Controller_rst == 1'b1)
+		presentState_RX <= idel_RX;
+	else
+		presentState_RX <= nextState_RX;
+end
+
+//FIR
+always@(posedge clk, posedge LAB1_top_Controller_rst)
+begin
+	if(LAB1_top_Controller_rst == 1'b1)
+		presentState_FIR <= idel_FIR;
+	else
+		presentState_FIR <= nextState_FIR;
+end
+
+//TX
+always@(posedge clk, posedge LAB1_top_Controller_rst)
+begin
+	if(LAB1_top_Controller_rst == 1'b1)
+		presentState_TX <= idel_TX;
+	else
+		presentState_TX <= nextState_TX;
+end
+
+
+
+//RX
+always@(presentState_RX,  data_ready)
+begin
+	//nextState <= start;// we must initialize out in order to synthesize tool don't make a latch.
+	case(presentState_RX)
+	idel_RX: if(data_ready == 1'b1) nextState_RX = recive_1_RX; else nextState_RX = idel_RX;
+	recive_1_RX: nextState_RX = wait_1_RX;
+	wait_1_RX: if(data_ready == 1'b1) nextState_RX = recive_2_RX; else nextState_RX = wait_1_RX;
+	recive_2_RX: nextState_RX = idel_RX;
+	endcase
+end
+
+
+//FIR
+always@(posedge presentState_FIR, posedge RX_reg_ready, posedge Output_Valid_FIR)
+begin
+	//nextState <= start;// we must initialize out in order to synthesize tool don't make a latch.
+	case(presentState_FIR)
+	idel_FIR: if(RX_reg_ready == 1'b1) nextState_FIR = inputValidation_FIR; else nextState_FIR = idel_FIR;
+	inputValidation_FIR: nextState_FIR = calculation_FIR;
+	calculation_FIR: if(Output_Valid_FIR == 1'b1) nextState_FIR = idel_FIR; else nextState_FIR = calculation_FIR;
+	endcase
+end
+
+
+//TX
+always@(posedge presentState_TX, posedge Output_Valid_FIR, negedge busy)
+begin
+	//nextState <= start;// we must initialize out in order to synthesize tool don't make a latch.
+	case(presentState_TX)
+	idel_TX: if(Output_Valid_FIR == 1'b1) nextState_TX = send_1_TX; else nextState_TX = idel_TX;
+	send_1_TX: nextState_TX = wait_1_TX;
+	wait_1_TX: if(busy == 1'b0) nextState_TX = send_2_TX; else nextState_TX = wait_1_TX;
+	send_2_TX: nextState_TX = idel_TX;
+	endcase
+end
+
+
+
+
+
+//RX
+always@(presentState_RX)
+begin
+	RX_reg_ready = 1'b0;// we must initialize out in order to synthesize tool don't make a latch.
+	case(presentState_RX)
+	idel_RX: RX_reg <= 16'b0;
+	recive_1_RX: RX_reg <= {RXD, 8'b0};
+	recive_2_RX: begin RX_reg <= {RX_reg[15:8], RXD};  RX_reg_ready = 1'b1; end
+	endcase
+end
+
+assign FIR_Input = RX_reg;
+
+
+
+
+//FIR
+always@(presentState_FIR)
+begin
+	Input_Valid_FIR = 1'b0;// we must initialize out in order to synthesize tool don't make a latch.
+	case(presentState_FIR)
+	inputValidation_FIR: Input_Valid_FIR = 1'b1;
+	endcase
+end
+
+
+
+//TX
+always@(presentState_TX)
+begin
+	TXD_start = 1'b0;
+	case(presentState_TX)
+	send_1_TX: begin TXD <= FIR_Output[26:19]; TXD_start = 1'b1; end
+	send_2_TX: begin TXD <= FIR_Output[18:11]; TXD_start = 1'b1; end
+	endcase
+end
+
+endmodule

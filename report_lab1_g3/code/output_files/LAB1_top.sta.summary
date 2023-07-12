@@ -1,0 +1,133 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_1_TX'
+Slack : -11.739
+TNS   : -91.460
+
+Type  : Slow Model Setup 'CLOCK_50'
+Slack : -11.242
+TNS   : -2643.095
+
+Type  : Slow Model Setup 'async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen|tick'
+Slack : -5.153
+TNS   : -5.153
+
+Type  : Slow Model Setup 'LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX'
+Slack : -2.956
+TNS   : -39.554
+
+Type  : Slow Model Hold 'CLOCK_50'
+Slack : -1.952
+TNS   : -15.579
+
+Type  : Slow Model Hold 'async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen|tick'
+Slack : 1.103
+TNS   : 0.000
+
+Type  : Slow Model Hold 'LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX'
+Slack : 1.194
+TNS   : 0.000
+
+Type  : Slow Model Hold 'LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_1_TX'
+Slack : 1.349
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen|tick'
+Slack : -4.037
+TNS   : -4.037
+
+Type  : Slow Model Recovery 'CLOCK_50'
+Slack : -1.628
+TNS   : -1771.264
+
+Type  : Slow Model Removal 'CLOCK_50'
+Slack : 2.398
+TNS   : 0.000
+
+Type  : Slow Model Removal 'async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen|tick'
+Slack : 3.743
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'CLOCK_50'
+Slack : -1.380
+TNS   : -1208.380
+
+Type  : Slow Model Minimum Pulse Width 'LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_1_TX'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen|tick'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_1_TX'
+Slack : -4.388
+TNS   : -33.857
+
+Type  : Fast Model Setup 'CLOCK_50'
+Slack : -3.812
+TNS   : -679.691
+
+Type  : Fast Model Setup 'async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen|tick'
+Slack : -2.493
+TNS   : -2.493
+
+Type  : Fast Model Setup 'LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX'
+Slack : -0.777
+TNS   : -10.482
+
+Type  : Fast Model Hold 'CLOCK_50'
+Slack : -1.341
+TNS   : -15.533
+
+Type  : Fast Model Hold 'async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen|tick'
+Slack : 0.472
+TNS   : 0.000
+
+Type  : Fast Model Hold 'LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX'
+Slack : 0.748
+TNS   : 0.000
+
+Type  : Fast Model Hold 'LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_1_TX'
+Slack : 0.997
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen|tick'
+Slack : -2.008
+TNS   : -2.008
+
+Type  : Fast Model Recovery 'CLOCK_50'
+Slack : -0.599
+TNS   : -651.712
+
+Type  : Fast Model Removal 'CLOCK_50'
+Slack : 1.479
+TNS   : 0.000
+
+Type  : Fast Model Removal 'async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen|tick'
+Slack : 2.436
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'CLOCK_50'
+Slack : -1.380
+TNS   : -1208.380
+
+Type  : Fast Model Minimum Pulse Width 'LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_1_TX'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen|tick'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

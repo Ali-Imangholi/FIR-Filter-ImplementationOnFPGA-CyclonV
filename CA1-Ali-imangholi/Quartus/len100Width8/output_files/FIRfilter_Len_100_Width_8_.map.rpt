@@ -1,0 +1,647 @@
+Analysis & Synthesis report for FIRfilter_Len_100_Width_8_
+Thu Oct 21 00:36:36 2021
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |FIRfilter_Len_100_Width_8_|CU:cu|presentState
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |FIRfilter_Len_100_Width_8_
+ 14. Parameter Settings for User Entity Instance: DP:dp
+ 15. Parameter Settings for User Entity Instance: DP:dp|registerFile:RF
+ 16. Parameter Settings for User Entity Instance: DP:dp|coefficients_Rom:CoeffRom
+ 17. Parameter Settings for User Entity Instance: DP:dp|counter:cnt
+ 18. Parameter Settings for User Entity Instance: DP:dp|signed_multiply:Smult
+ 19. Parameter Settings for User Entity Instance: DP:dp|signed_adder:Sadder
+ 20. Parameter Settings for User Entity Instance: DP:dp|register:Reg
+ 21. Parameter Settings for User Entity Instance: DP:dp|sign_ext_6b:sngExt
+ 22. Parameter Settings for User Entity Instance: CU:cu
+ 23. Parameter Settings for Inferred Entity Instance: DP:dp|signed_multiply:Smult|lpm_mult:Mult0
+ 24. lpm_mult Parameter Settings by Entity Instance
+ 25. Port Connectivity Checks: "DP:dp|signed_adder:Sadder"
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
+ 28. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Oct 21 00:36:36 2021           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; FIRfilter_Len_100_Width_8_                      ;
+; Top-level Entity Name              ; FIRfilter_Len_100_Width_8_                      ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 1,567                                           ;
+;     Total combinational functions  ; 766                                             ;
+;     Dedicated logic registers      ; 927                                             ;
+; Total registers                    ; 927                                             ;
+; Total pins                         ; 34                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 1                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                        ;
++----------------------------------------------------------------------------+----------------------------+----------------------------+
+; Option                                                                     ; Setting                    ; Default Value              ;
++----------------------------------------------------------------------------+----------------------------+----------------------------+
+; Device                                                                     ; EP2C35F672C6               ;                            ;
+; Top-level entity name                                                      ; FIRfilter_Len_100_Width_8_ ; FIRfilter_Len_100_Width_8_ ;
+; Family name                                                                ; Cyclone II                 ; Cyclone IV GX              ;
+; Use smart compilation                                                      ; Off                        ; Off                        ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                         ; On                         ;
+; Enable compact report table                                                ; Off                        ; Off                        ;
+; Restructure Multiplexers                                                   ; Auto                       ; Auto                       ;
+; Create Debugging Nodes for IP Cores                                        ; Off                        ; Off                        ;
+; Preserve fewer node names                                                  ; On                         ; On                         ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                        ; Off                        ;
+; Verilog Version                                                            ; Verilog_2001               ; Verilog_2001               ;
+; VHDL Version                                                               ; VHDL_1993                  ; VHDL_1993                  ;
+; State Machine Processing                                                   ; Auto                       ; Auto                       ;
+; Safe State Machine                                                         ; Off                        ; Off                        ;
+; Extract Verilog State Machines                                             ; On                         ; On                         ;
+; Extract VHDL State Machines                                                ; On                         ; On                         ;
+; Ignore Verilog initial constructs                                          ; Off                        ; Off                        ;
+; Iteration limit for constant Verilog loops                                 ; 5000                       ; 5000                       ;
+; Iteration limit for non-constant Verilog loops                             ; 250                        ; 250                        ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                         ; On                         ;
+; Infer RAMs from Raw Logic                                                  ; On                         ; On                         ;
+; Parallel Synthesis                                                         ; On                         ; On                         ;
+; DSP Block Balancing                                                        ; Auto                       ; Auto                       ;
+; NOT Gate Push-Back                                                         ; On                         ; On                         ;
+; Power-Up Don't Care                                                        ; On                         ; On                         ;
+; Remove Redundant Logic Cells                                               ; Off                        ; Off                        ;
+; Remove Duplicate Registers                                                 ; On                         ; On                         ;
+; Ignore CARRY Buffers                                                       ; Off                        ; Off                        ;
+; Ignore CASCADE Buffers                                                     ; Off                        ; Off                        ;
+; Ignore GLOBAL Buffers                                                      ; Off                        ; Off                        ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                        ; Off                        ;
+; Ignore LCELL Buffers                                                       ; Off                        ; Off                        ;
+; Ignore SOFT Buffers                                                        ; On                         ; On                         ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                        ; Off                        ;
+; Optimization Technique                                                     ; Balanced                   ; Balanced                   ;
+; Carry Chain Length                                                         ; 70                         ; 70                         ;
+; Auto Carry Chains                                                          ; On                         ; On                         ;
+; Auto Open-Drain Pins                                                       ; On                         ; On                         ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                        ; Off                        ;
+; Auto ROM Replacement                                                       ; On                         ; On                         ;
+; Auto RAM Replacement                                                       ; On                         ; On                         ;
+; Auto Shift Register Replacement                                            ; Auto                       ; Auto                       ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto                       ; Auto                       ;
+; Auto Clock Enable Replacement                                              ; On                         ; On                         ;
+; Strict RAM Replacement                                                     ; Off                        ; Off                        ;
+; Allow Synchronous Control Signals                                          ; On                         ; On                         ;
+; Force Use of Synchronous Clear Signals                                     ; Off                        ; Off                        ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                        ; Off                        ;
+; Auto Resource Sharing                                                      ; Off                        ; Off                        ;
+; Allow Any RAM Size For Recognition                                         ; Off                        ; Off                        ;
+; Allow Any ROM Size For Recognition                                         ; Off                        ; Off                        ;
+; Allow Any Shift Register Size For Recognition                              ; Off                        ; Off                        ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                         ; On                         ;
+; Ignore translate_off and synthesis_off directives                          ; Off                        ; Off                        ;
+; Timing-Driven Synthesis                                                    ; Off                        ; Off                        ;
+; Report Parameter Settings                                                  ; On                         ; On                         ;
+; Report Source Assignments                                                  ; On                         ; On                         ;
+; Report Connectivity Checks                                                 ; On                         ; On                         ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                        ; Off                        ;
+; Synchronization Register Chain Length                                      ; 2                          ; 2                          ;
+; PowerPlay Power Optimization                                               ; Normal compilation         ; Normal compilation         ;
+; HDL message level                                                          ; Level2                     ; Level2                     ;
+; Suppress Register Optimization Related Messages                            ; Off                        ; Off                        ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000                       ; 5000                       ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000                       ; 5000                       ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                        ; 100                        ;
+; Clock MUX Protection                                                       ; On                         ; On                         ;
+; Auto Gated Clock Conversion                                                ; Off                        ; Off                        ;
+; Block Design Naming                                                        ; Auto                       ; Auto                       ;
+; SDC constraint protection                                                  ; Off                        ; Off                        ;
+; Synthesis Effort                                                           ; Auto                       ; Auto                       ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                         ; On                         ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                        ; Off                        ;
+; Analysis & Synthesis Message Level                                         ; Medium                     ; Medium                     ;
+; Disable Register Merging Across Hierarchies                                ; Auto                       ; Auto                       ;
+; Resource Aware Inference For Block RAM                                     ; On                         ; On                         ;
+; Synthesis Seed                                                             ; 1                          ; 1                          ;
++----------------------------------------------------------------------------+----------------------------+----------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                 ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                             ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+; sign_ext_6b.v                    ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/sign_ext_6b.v     ;         ;
+; signed_multiply.v                ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/signed_multiply.v ;         ;
+; signed_adder.v                   ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/signed_adder.v    ;         ;
+; serialFIRfilter.v                ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/serialFIRfilter.v ;         ;
+; registerFile.v                   ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/registerFile.v    ;         ;
+; register.v                       ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/register.v        ;         ;
+; DP.v                             ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/DP.v              ;         ;
+; CU.v                             ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/CU.v              ;         ;
+; counter.v                        ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/counter.v         ;         ;
+; coefficient_Rom.v                ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/coefficient_Rom.v ;         ;
+; coeffs.txt                       ; yes             ; Auto-Found File              ; C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/coeffs.txt        ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mult.tdf                           ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                         ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc                        ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/multcore.inc                           ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/bypassff.inc                           ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.inc                           ;         ;
+; db/mult_lus.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/db/mult_lus.tdf   ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 1,567 ;
+;                                             ;       ;
+; Total combinational functions               ; 766   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 604   ;
+;     -- 3 input functions                    ; 55    ;
+;     -- <=2 input functions                  ; 107   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 646   ;
+;     -- arithmetic mode                      ; 120   ;
+;                                             ;       ;
+; Total registers                             ; 927   ;
+;     -- Dedicated logic registers            ; 927   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 34    ;
+; Embedded Multiplier 9-bit elements          ; 1     ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 927   ;
+; Total fan-out                               ; 6514  ;
+; Average fan-out                             ; 3.77  ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                               ;
++---------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node            ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                            ; Library Name ;
++---------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------+--------------+
+; |FIRfilter_Len_100_Width_8_           ; 766 (0)           ; 927 (0)      ; 0           ; 1            ; 1       ; 0         ; 34   ; 0            ; |FIRfilter_Len_100_Width_8_                                                                    ; work         ;
+;    |CU:cu|                            ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FIRfilter_Len_100_Width_8_|CU:cu                                                              ; work         ;
+;    |DP:dp|                            ; 761 (0)           ; 922 (0)      ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |FIRfilter_Len_100_Width_8_|DP:dp                                                              ; work         ;
+;       |coefficients_Rom:CoeffRom|     ; 52 (52)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FIRfilter_Len_100_Width_8_|DP:dp|coefficients_Rom:CoeffRom                                    ; work         ;
+;       |counter:cnt|                   ; 134 (134)         ; 100 (100)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FIRfilter_Len_100_Width_8_|DP:dp|counter:cnt                                                  ; work         ;
+;       |register:Reg|                  ; 23 (23)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FIRfilter_Len_100_Width_8_|DP:dp|register:Reg                                                 ; work         ;
+;       |registerFile:RF|               ; 530 (530)         ; 800 (800)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FIRfilter_Len_100_Width_8_|DP:dp|registerFile:RF                                              ; work         ;
+;       |signed_adder:Sadder|           ; 22 (22)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FIRfilter_Len_100_Width_8_|DP:dp|signed_adder:Sadder                                          ; work         ;
+;       |signed_multiply:Smult|         ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |FIRfilter_Len_100_Width_8_|DP:dp|signed_multiply:Smult                                        ; work         ;
+;          |lpm_mult:Mult0|             ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |FIRfilter_Len_100_Width_8_|DP:dp|signed_multiply:Smult|lpm_mult:Mult0                         ; work         ;
+;             |mult_lus:auto_generated| ; 0 (0)             ; 0 (0)        ; 0           ; 1            ; 1       ; 0         ; 0    ; 0            ; |FIRfilter_Len_100_Width_8_|DP:dp|signed_multiply:Smult|lpm_mult:Mult0|mult_lus:auto_generated ; work         ;
++---------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 1           ;
+; Simple Multipliers (18-bit)           ; 0           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 1           ;
+; Signed Embedded Multipliers           ; 1           ;
+; Unsigned Embedded Multipliers         ; 0           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |FIRfilter_Len_100_Width_8_|CU:cu|presentState                                                                                          ;
++--------------------------+--------------------------+--------------------------+--------------------+-------------------------+-------------------------+
+; Name                     ; presentState.calculation ; presentState.acceptInput ; presentState.start ; presentState.resetSTATE ; presentState.endProcess ;
++--------------------------+--------------------------+--------------------------+--------------------+-------------------------+-------------------------+
+; presentState.resetSTATE  ; 0                        ; 0                        ; 0                  ; 0                       ; 0                       ;
+; presentState.start       ; 0                        ; 0                        ; 1                  ; 1                       ; 0                       ;
+; presentState.acceptInput ; 0                        ; 1                        ; 0                  ; 1                       ; 0                       ;
+; presentState.calculation ; 1                        ; 0                        ; 0                  ; 1                       ; 0                       ;
+; presentState.endProcess  ; 0                        ; 0                        ; 0                  ; 1                       ; 1                       ;
++--------------------------+--------------------------+--------------------------+--------------------+-------------------------+-------------------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; CU:cu|presentState~4                  ; Lost fanout        ;
+; CU:cu|presentState~5                  ; Lost fanout        ;
+; Total Number of Removed Registers = 2 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 927   ;
+; Number of registers using Synchronous Clear  ; 100   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 905   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 822   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |FIRfilter_Len_100_Width_8_|DP:dp|register:Reg|out[14] ;
+; 3:1                ; 100 bits  ; 200 LEs       ; 100 LEs              ; 100 LEs                ; Yes        ; |FIRfilter_Len_100_Width_8_|DP:dp|counter:cnt|out[15]  ;
+; 100:1              ; 8 bits    ; 528 LEs       ; 528 LEs              ; 0 LEs                  ; No         ; |FIRfilter_Len_100_Width_8_|DP:dp|registerFile:RF|Mux1 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |FIRfilter_Len_100_Width_8_ ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                    ;
+; LENGTH         ; 100   ; Signed Integer                                                    ;
+; OUT_WIDTH      ; 22    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------+
+; Parameter Settings for User Entity Instance: DP:dp ;
++----------------+-------+---------------------------+
+; Parameter Name ; Value ; Type                      ;
++----------------+-------+---------------------------+
+; WIDTH          ; 8     ; Signed Integer            ;
+; LENGTH         ; 100   ; Signed Integer            ;
++----------------+-------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DP:dp|registerFile:RF ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                            ;
+; LENGTH         ; 100   ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DP:dp|coefficients_Rom:CoeffRom ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                      ;
+; LENGTH         ; 100   ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DP:dp|counter:cnt ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; LENGTH         ; 100   ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DP:dp|signed_multiply:Smult ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DP:dp|signed_adder:Sadder ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DP:dp|register:Reg ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DP:dp|sign_ext_6b:sngExt ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------+
+; Parameter Settings for User Entity Instance: CU:cu ;
++----------------+-------+---------------------------+
+; Parameter Name ; Value ; Type                      ;
++----------------+-------+---------------------------+
+; resetSTATE     ; 000   ; Unsigned Binary           ;
+; start          ; 001   ; Unsigned Binary           ;
+; acceptInput    ; 010   ; Unsigned Binary           ;
+; calculation    ; 011   ; Unsigned Binary           ;
+; endProcess     ; 100   ; Unsigned Binary           ;
++----------------+-------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DP:dp|signed_multiply:Smult|lpm_mult:Mult0 ;
++------------------------------------------------+------------+-------------------------------+
+; Parameter Name                                 ; Value      ; Type                          ;
++------------------------------------------------+------------+-------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE                ;
+; LPM_WIDTHA                                     ; 8          ; Untyped                       ;
+; LPM_WIDTHB                                     ; 8          ; Untyped                       ;
+; LPM_WIDTHP                                     ; 16         ; Untyped                       ;
+; LPM_WIDTHR                                     ; 16         ; Untyped                       ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                       ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                       ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                       ;
+; LATENCY                                        ; 0          ; Untyped                       ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped                       ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                       ;
+; USE_EAB                                        ; OFF        ; Untyped                       ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped                       ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                       ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                       ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K           ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                       ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                       ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                       ;
+; CBXI_PARAMETER                                 ; mult_lus   ; Untyped                       ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                       ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                       ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                       ;
++------------------------------------------------+------------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                     ;
++---------------------------------------+--------------------------------------------+
+; Name                                  ; Value                                      ;
++---------------------------------------+--------------------------------------------+
+; Number of entity instances            ; 1                                          ;
+; Entity Instance                       ; DP:dp|signed_multiply:Smult|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                                          ;
+;     -- LPM_WIDTHB                     ; 8                                          ;
+;     -- LPM_WIDTHP                     ; 16                                         ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                         ;
+;     -- USE_EAB                        ; OFF                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                         ;
++---------------------------------------+--------------------------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "DP:dp|signed_adder:Sadder" ;
++------+-------+----------+-----------------------------+
+; Port ; Type  ; Severity ; Details                     ;
++------+-------+----------+-----------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                ;
++------+-------+----------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Thu Oct 21 00:36:31 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FIRfilter_Len_100_Width_8_ -c FIRfilter_Len_100_Width_8_
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file sign_ext_6b.v
+    Info (12023): Found entity 1: sign_ext_6b
+Info (12021): Found 1 design units, including 1 entities, in source file signed_multiply.v
+    Info (12023): Found entity 1: signed_multiply
+Info (12021): Found 1 design units, including 1 entities, in source file signed_adder.v
+    Info (12023): Found entity 1: signed_adder
+Info (12021): Found 1 design units, including 1 entities, in source file serialfirfilter.v
+    Info (12023): Found entity 1: FIRfilter_Len_100_Width_8_
+Info (12021): Found 1 design units, including 1 entities, in source file registerfile.v
+    Info (12023): Found entity 1: registerFile
+Info (12021): Found 1 design units, including 1 entities, in source file register.v
+    Info (12023): Found entity 1: register
+Info (12021): Found 1 design units, including 1 entities, in source file dp.v
+    Info (12023): Found entity 1: DP
+Info (12021): Found 1 design units, including 1 entities, in source file cu.v
+    Info (12023): Found entity 1: CU
+Info (12021): Found 1 design units, including 1 entities, in source file counter.v
+    Info (12023): Found entity 1: counter
+Info (12021): Found 1 design units, including 1 entities, in source file coefficient_rom.v
+    Info (12023): Found entity 1: coefficients_Rom
+Info (12127): Elaborating entity "FIRfilter_Len_100_Width_8_" for the top level hierarchy
+Info (12128): Elaborating entity "DP" for hierarchy "DP:dp"
+Info (12128): Elaborating entity "registerFile" for hierarchy "DP:dp|registerFile:RF"
+Info (12128): Elaborating entity "coefficients_Rom" for hierarchy "DP:dp|coefficients_Rom:CoeffRom"
+Warning (10850): Verilog HDL warning at coefficient_Rom.v(11): number of words (64) in memory file does not match the number of elements in the address range [0:99]
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(1): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(2): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(3): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(4): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(5): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(6): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(7): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(8): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(9): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(10): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(11): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(12): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(13): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(14): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(15): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(16): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(17): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(18): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(19): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(20): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(21): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(22): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(23): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(24): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(25): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(26): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(27): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(28): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(29): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(30): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(31): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(32): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(33): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(34): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(35): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(36): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(37): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(38): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(39): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(40): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(41): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(42): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(43): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(44): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(45): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(46): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(47): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(48): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(49): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(50): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(51): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(52): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(53): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(54): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(55): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(56): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(57): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(58): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(59): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(60): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(61): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(62): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(63): truncated value with size 16 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at coeffs.txt(64): truncated value with size 16 to match size of target (8)
+Warning (10030): Net "coeffs.data_a" at coefficient_Rom.v(8) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "coeffs.waddr_a" at coefficient_Rom.v(8) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "coeffs.we_a" at coefficient_Rom.v(8) has no driver or initial value, using a default initial value '0'
+Info (12128): Elaborating entity "counter" for hierarchy "DP:dp|counter:cnt"
+Info (12128): Elaborating entity "signed_multiply" for hierarchy "DP:dp|signed_multiply:Smult"
+Info (12128): Elaborating entity "signed_adder" for hierarchy "DP:dp|signed_adder:Sadder"
+Info (12128): Elaborating entity "register" for hierarchy "DP:dp|register:Reg"
+Info (12128): Elaborating entity "sign_ext_6b" for hierarchy "DP:dp|sign_ext_6b:sngExt"
+Info (12128): Elaborating entity "CU" for hierarchy "CU:cu"
+Critical Warning (127005): Memory depth (128) in the design file differs from memory depth (100) in the Memory Initialization File "C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/db/FIRfilter_Len_100_Width_8_.ram0_coefficients_Rom_7bc3d00a.hdl.mif" -- setting initial value for remaining addresses to 0
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/db/FIRfilter_Len_100_Width_8_.ram0_coefficients_Rom_7bc3d00a.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "DP:dp|signed_multiply:Smult|Mult0"
+Info (12130): Elaborated megafunction instantiation "DP:dp|signed_multiply:Smult|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "DP:dp|signed_multiply:Smult|lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "8"
+    Info (12134): Parameter "LPM_WIDTHB" = "8"
+    Info (12134): Parameter "LPM_WIDTHP" = "16"
+    Info (12134): Parameter "LPM_WIDTHR" = "16"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_lus.tdf
+    Info (12023): Found entity 1: mult_lus
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/output_files/FIRfilter_Len_100_Width_8_.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1602 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 23 output pins
+    Info (21061): Implemented 1567 logic cells
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 71 warnings
+    Info: Peak virtual memory: 4617 megabytes
+    Info: Processing ended: Thu Oct 21 00:36:36 2021
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:05
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Quartus/len100Width8/output_files/FIRfilter_Len_100_Width_8_.map.smsg.
+
+

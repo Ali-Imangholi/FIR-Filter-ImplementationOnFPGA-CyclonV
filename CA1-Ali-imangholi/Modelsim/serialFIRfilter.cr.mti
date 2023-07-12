@@ -1,0 +1,78 @@
+C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/register.v {1 {vlog -work work -stats=none C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/register.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module register
+
+Top level modules:
+	register
+
+} {} {}} C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/registerFile.v {1 {vlog -work work -stats=none C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/registerFile.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module registerFile
+
+Top level modules:
+	registerFile
+
+} {} {}} C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/signed_adder.v {1 {vlog -work work -stats=none C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/signed_adder.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module signed_adder
+
+Top level modules:
+	signed_adder
+
+} {} {}} C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/signed_multiply.v {1 {vlog -work work -stats=none C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/signed_multiply.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module signed_multiply
+
+Top level modules:
+	signed_multiply
+
+} {} {}} C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/serialFIRfilter.v {1 {vlog -work work -stats=none C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/serialFIRfilter.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module serialFIRfilter
+
+Top level modules:
+	serialFIRfilter
+
+} {} {}} C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/DP.v {1 {vlog -work work -stats=none C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/DP.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module DP
+
+Top level modules:
+	DP
+
+} {} {}} C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/CU.v {1 {vlog -work work -stats=none C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/CU.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module CU
+
+Top level modules:
+	CU
+
+} {} {}} C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/coefficient_Rom.v {1 {vlog -work work -stats=none C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/coefficient_Rom.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module coefficients_Rom
+
+Top level modules:
+	coefficients_Rom
+
+} {} {}} C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/counter.v {1 {vlog -work work -stats=none C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/counter.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module counter
+
+Top level modules:
+	counter
+
+} {} {}} C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/sign_ext_6b.v {1 {vlog -work work -stats=none C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/sign_ext_6b.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module sign_ext_6b
+
+Top level modules:
+	sign_ext_6b
+
+} {} {}} C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/testbench.v {1 {vlog -work work -stats=none C:/Users/iman/Desktop/CA1-Ali-imangholi-810197692/Modelsim/testbench.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module testbench
+
+Top level modules:
+	testbench
+
+} {} {}}

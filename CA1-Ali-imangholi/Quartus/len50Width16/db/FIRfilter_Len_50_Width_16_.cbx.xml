@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="FIRfilter_Len_50_Width_16_">
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRfilter_Len_50_Width_16_|DP:dp|signed_multiply:Smult|lpm_mult:Mult0" CBX_FILE_NAME="mult_f1t.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

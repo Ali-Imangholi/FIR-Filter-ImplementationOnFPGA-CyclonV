@@ -1,0 +1,44 @@
+module FIRfilter_Len_50_Width_8_
+#(parameter WIDTH=8, parameter LENGTH=50, parameter OUT_WIDTH=22)
+(
+input clk,
+input rst,
+input  [WIDTH-1:0]FIR_input,
+input input_valid,
+output output_valid,
+output [OUT_WIDTH -1:0] FIR_output
+);
+
+wire SHIFT_ENB;
+wire COUNT_ENB;
+wire ROLL_BACK;
+wire DP_RST;
+wire REGISTER_ENB;
+wire RESET_REG;
+
+DP dp(
+.clk(clk),
+.dp_rst(DP_RST),
+.dp_shift_enb(SHIFT_ENB),
+.dp_count_enb(COUNT_ENB),
+.dp_in(FIR_input),
+.register_enb(REGISTER_ENB),
+.resetReg(RESET_REG),
+.dp_rollBack(ROLL_BACK),
+.dp_out(FIR_output)
+);
+
+CU cu(
+.clk(clk),
+.cu_rst(rst),
+.rollBack(ROLL_BACK),
+.Input_Valid(input_valid),
+.dp_rst(DP_RST),
+.shift_enb(SHIFT_ENB),
+.count_enb(COUNT_ENB),
+.register_enb(REGISTER_ENB),
+.resetReg(RESET_REG),
+.Output_Valid(output_valid)
+);
+
+endmodule

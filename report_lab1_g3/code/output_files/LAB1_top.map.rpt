@@ -1,0 +1,886 @@
+Analysis & Synthesis report for LAB1_top
+Thu Oct 28 14:57:22 2021
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|CU:cu|presentState
+ 10. State Machine - |LAB1_top|LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX
+ 11. State Machine - |LAB1_top|LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_FIR
+ 12. State Machine - |LAB1_top|LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX
+ 13. User-Specified and Inferred Latches
+ 14. Registers Removed During Synthesis
+ 15. Removed Registers Triggering Further Register Optimizations
+ 16. General Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Parameter Settings for User Entity Instance: Top-level Entity: |LAB1_top
+ 19. Parameter Settings for User Entity Instance: LAB1_top_Controller:LAB1_TOP_CONTROLLER
+ 20. Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER
+ 21. Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp
+ 22. Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|registerFile:RF
+ 23. Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|coefficients_Rom:CoeffRom
+ 24. Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|counter:cnt
+ 25. Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_multiply:Smult
+ 26. Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_adder:Sadder
+ 27. Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg
+ 28. Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|sign_ext_6b:sngExt
+ 29. Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|CU:cu
+ 30. Parameter Settings for User Entity Instance: async_transmitter:ASYNC_TRANSMITTER
+ 31. Parameter Settings for User Entity Instance: async_transmitter:ASYNC_TRANSMITTER|BaudTickGen:tickgen
+ 32. Parameter Settings for User Entity Instance: async_receiver:ASYNC_RECEIVER
+ 33. Parameter Settings for User Entity Instance: async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen
+ 34. Parameter Settings for Inferred Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_multiply:Smult|lpm_mult:Mult0
+ 35. lpm_mult Parameter Settings by Entity Instance
+ 36. Port Connectivity Checks: "serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_adder:Sadder"
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
+ 39. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Oct 28 14:57:22 2021           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; LAB1_top                                        ;
+; Top-level Entity Name              ; LAB1_top                                        ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 2,093                                           ;
+;     Total combinational functions  ; 1,075                                           ;
+;     Dedicated logic registers      ; 1,207                                           ;
+; Total registers                    ; 1207                                            ;
+; Total pins                         ; 24                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 2                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; LAB1_top           ; LAB1_top           ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                          ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                      ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
+; sign_ext_6b.v                    ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/sign_ext_6b.v                          ;         ;
+; signed_multiply.v                ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/signed_multiply.v                      ;         ;
+; signed_adder.v                   ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/signed_adder.v                         ;         ;
+; serialFIRfilter.v                ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/serialFIRfilter.v                      ;         ;
+; registerFile.v                   ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/registerFile.v                         ;         ;
+; register.v                       ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/register.v                             ;         ;
+; LAB1_top_Controller.v            ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/LAB1_top_Controller.v                  ;         ;
+; LAB1_top.v                       ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/LAB1_top.v                             ;         ;
+; DP.v                             ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/DP.v                                   ;         ;
+; CU.v                             ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/CU.v                                   ;         ;
+; counter.v                        ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/counter.v                              ;         ;
+; coefficient_Rom.v                ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/coefficient_Rom.v                      ;         ;
+; BaudTickGen.v                    ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/BaudTickGen.v                          ;         ;
+; async_transmitter.v              ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/async_transmitter.v                    ;         ;
+; async_receiver.v                 ; yes             ; User Verilog HDL File        ; C:/Users/iman/Desktop/LAB1/async_receiver.v                       ;         ;
+; coeffs.txt                       ; yes             ; Auto-Found File              ; C:/Users/iman/Desktop/LAB1/coeffs.txt                             ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mult.tdf    ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc  ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/multcore.inc    ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/bypassff.inc    ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.inc    ;         ;
+; db/mult_f1t.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/iman/Desktop/LAB1/db/mult_f1t.tdf                        ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimated Total logic elements              ; 2,093    ;
+;                                             ;          ;
+; Total combinational functions               ; 1075     ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 822      ;
+;     -- 3 input functions                    ; 107      ;
+;     -- <=2 input functions                  ; 146      ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 938      ;
+;     -- arithmetic mode                      ; 137      ;
+;                                             ;          ;
+; Total registers                             ; 1207     ;
+;     -- Dedicated logic registers            ; 1207     ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 24       ;
+; Embedded Multiplier 9-bit elements          ; 2        ;
+; Maximum fan-out node                        ; CLOCK_50 ;
+; Maximum fan-out                             ; 1207     ;
+; Total fan-out                               ; 8625     ;
+; Average fan-out                             ; 3.74     ;
++---------------------------------------------+----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                      ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                            ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------+--------------+
+; |LAB1_top                                    ; 1075 (0)          ; 1207 (0)     ; 0           ; 2            ; 0       ; 1         ; 24   ; 0            ; |LAB1_top                                                                                                      ; work         ;
+;    |LAB1_top_Controller:LAB1_TOP_CONTROLLER| ; 59 (59)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LAB1_top|LAB1_top_Controller:LAB1_TOP_CONTROLLER                                                              ; work         ;
+;    |async_receiver:ASYNC_RECEIVER|           ; 64 (29)           ; 38 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LAB1_top|async_receiver:ASYNC_RECEIVER                                                                        ; work         ;
+;       |BaudTickGen:tickgen|                  ; 35 (35)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LAB1_top|async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen                                                    ; work         ;
+;    |async_transmitter:ASYNC_TRANSMITTER|     ; 58 (23)           ; 38 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LAB1_top|async_transmitter:ASYNC_TRANSMITTER                                                                  ; work         ;
+;       |BaudTickGen:tickgen|                  ; 35 (35)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LAB1_top|async_transmitter:ASYNC_TRANSMITTER|BaudTickGen:tickgen                                              ; work         ;
+;    |serialFIRfilter:SERIAL_FIR_FILTER|       ; 894 (0)           ; 1120 (0)     ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER                                                                    ; work         ;
+;       |CU:cu|                                ; 4 (4)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|CU:cu                                                              ; work         ;
+;       |DP:dp|                                ; 890 (0)           ; 1115 (0)     ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|DP:dp                                                              ; work         ;
+;          |coefficients_Rom:CoeffRom|         ; 76 (76)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|coefficients_Rom:CoeffRom                                    ; work         ;
+;          |counter:cnt|                       ; 87 (87)           ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|counter:cnt                                                  ; work         ;
+;          |register:Reg|                      ; 28 (28)           ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg                                                 ; work         ;
+;          |registerFile:RF|                   ; 672 (672)         ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|registerFile:RF                                              ; work         ;
+;          |signed_adder:Sadder|               ; 27 (27)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_adder:Sadder                                          ; work         ;
+;          |signed_multiply:Smult|             ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_multiply:Smult                                        ; work         ;
+;             |lpm_mult:Mult0|                 ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_multiply:Smult|lpm_mult:Mult0                         ; work         ;
+;                |mult_f1t:auto_generated|     ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_multiply:Smult|lpm_mult:Mult0|mult_f1t:auto_generated ; work         ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 1           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 2           ;
+; Signed Embedded Multipliers           ; 1           ;
+; Unsigned Embedded Multipliers         ; 0           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|CU:cu|presentState                                                                          ;
++--------------------------+--------------------------+--------------------------+--------------------+-------------------------+-------------------------+
+; Name                     ; presentState.calculation ; presentState.acceptInput ; presentState.start ; presentState.resetSTATE ; presentState.endProcess ;
++--------------------------+--------------------------+--------------------------+--------------------+-------------------------+-------------------------+
+; presentState.resetSTATE  ; 0                        ; 0                        ; 0                  ; 0                       ; 0                       ;
+; presentState.start       ; 0                        ; 0                        ; 1                  ; 1                       ; 0                       ;
+; presentState.acceptInput ; 0                        ; 1                        ; 0                  ; 1                       ; 0                       ;
+; presentState.calculation ; 1                        ; 0                        ; 0                  ; 1                       ; 0                       ;
+; presentState.endProcess  ; 0                        ; 0                        ; 0                  ; 1                       ; 1                       ;
++--------------------------+--------------------------+--------------------------+--------------------+-------------------------+-------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |LAB1_top|LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX                                                       ;
++---------------------------+---------------------------+---------------------------+---------------------------+-------------------------+
+; Name                      ; presentState_TX.wait_1_TX ; presentState_TX.send_2_TX ; presentState_TX.send_1_TX ; presentState_TX.idel_TX ;
++---------------------------+---------------------------+---------------------------+---------------------------+-------------------------+
+; presentState_TX.idel_TX   ; 0                         ; 0                         ; 0                         ; 0                       ;
+; presentState_TX.send_1_TX ; 0                         ; 0                         ; 1                         ; 1                       ;
+; presentState_TX.send_2_TX ; 0                         ; 1                         ; 0                         ; 1                       ;
+; presentState_TX.wait_1_TX ; 1                         ; 0                         ; 0                         ; 1                       ;
++---------------------------+---------------------------+---------------------------+---------------------------+-------------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |LAB1_top|LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_FIR                                                         ;
++--------------------------------------+---------------------------+----------------------------------+--------------------------------------+
+; Name                                 ; presentState_FIR.idel_FIR ; presentState_FIR.calculation_FIR ; presentState_FIR.inputValidation_FIR ;
++--------------------------------------+---------------------------+----------------------------------+--------------------------------------+
+; presentState_FIR.idel_FIR            ; 0                         ; 0                                ; 0                                    ;
+; presentState_FIR.inputValidation_FIR ; 1                         ; 0                                ; 1                                    ;
+; presentState_FIR.calculation_FIR     ; 1                         ; 1                                ; 0                                    ;
++--------------------------------------+---------------------------+----------------------------------+--------------------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |LAB1_top|LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX                                                             ;
++-----------------------------+---------------------------+-----------------------------+-----------------------------+-------------------------+
+; Name                        ; presentState_RX.wait_1_RX ; presentState_RX.recive_2_RX ; presentState_RX.recive_1_RX ; presentState_RX.idel_RX ;
++-----------------------------+---------------------------+-----------------------------+-----------------------------+-------------------------+
+; presentState_RX.idel_RX     ; 0                         ; 0                           ; 0                           ; 0                       ;
+; presentState_RX.recive_1_RX ; 0                         ; 0                           ; 1                           ; 1                       ;
+; presentState_RX.recive_2_RX ; 0                         ; 1                           ; 0                           ; 1                       ;
+; presentState_RX.wait_1_RX   ; 1                         ; 0                           ; 0                           ; 1                       ;
++-----------------------------+---------------------------+-----------------------------+-----------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                              ;
++-----------------------------------------------------+-------------------------------------------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal                                               ; Free of Timing Hazards ;
++-----------------------------------------------------+-------------------------------------------------------------------+------------------------+
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[0]      ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|WideNor1                  ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[1]      ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|WideNor1                  ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[2]      ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|WideNor1                  ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[3]      ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|WideNor1                  ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[4]      ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|WideNor1                  ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[0]   ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[1]   ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[2]   ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[3]   ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[4]   ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[5]   ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[6]   ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[7]   ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX.wait_1_RX ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[8]   ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg                    ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[9]   ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg                    ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[10]  ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg                    ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[11]  ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg                    ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[12]  ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg                    ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[13]  ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg                    ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[14]  ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg                    ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg[15]  ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|RX_reg                    ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[5]      ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|WideNor1                  ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[6]      ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|WideNor1                  ; yes                    ;
+; async_receiver:ASYNC_RECEIVER|cout                  ; GND                                                               ; yes                    ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[7]      ; LAB1_top_Controller:LAB1_TOP_CONTROLLER|WideNor1                  ; yes                    ;
+; async_receiver:ASYNC_RECEIVER|count[0]              ; async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen|tick            ; yes                    ;
+; async_receiver:ASYNC_RECEIVER|count[1]              ; async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen|tick            ; yes                    ;
+; Number of user-specified and inferred latches = 27  ;                                                                   ;                        ;
++-----------------------------------------------------+-------------------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                        ;
++------------------------------------------------------------------+----------------------------------------+
+; Register name                                                    ; Reason for Removal                     ;
++------------------------------------------------------------------+----------------------------------------+
+; async_receiver:ASYNC_RECEIVER|RxD_data_ready                     ; Stuck at VCC due to stuck port data_in ;
+; serialFIRfilter:SERIAL_FIR_FILTER|CU:cu|presentState~4           ; Lost fanout                            ;
+; serialFIRfilter:SERIAL_FIR_FILTER|CU:cu|presentState~5           ; Lost fanout                            ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX~4        ; Lost fanout                            ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX~5        ; Lost fanout                            ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX~7        ; Lost fanout                            ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_FIR~6       ; Lost fanout                            ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_FIR~7       ; Lost fanout                            ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX~4        ; Lost fanout                            ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX~5        ; Lost fanout                            ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX~6        ; Lost fanout                            ;
+; LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX~7        ; Lost fanout                            ;
+; serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg|out[27..37] ; Lost fanout                            ;
+; Total Number of Removed Registers = 23                           ;                                        ;
++------------------------------------------------------------------+----------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                       ;
++--------------------------------------------------------------+--------------------+---------------------------------------------------------------+
+; Register name                                                ; Reason for Removal ; Registers Removed due to This Register                        ;
++--------------------------------------------------------------+--------------------+---------------------------------------------------------------+
+; serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg|out[37] ; Lost Fanouts       ; serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg|out[36], ;
+;                                                              ;                    ; serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg|out[35], ;
+;                                                              ;                    ; serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg|out[34], ;
+;                                                              ;                    ; serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg|out[33], ;
+;                                                              ;                    ; serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg|out[32], ;
+;                                                              ;                    ; serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg|out[31], ;
+;                                                              ;                    ; serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg|out[30], ;
+;                                                              ;                    ; serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg|out[29], ;
+;                                                              ;                    ; serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg|out[28], ;
+;                                                              ;                    ; serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg|out[27]  ;
++--------------------------------------------------------------+--------------------+---------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1207  ;
+; Number of registers using Synchronous Clear  ; 114   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 1104  ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1065  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------+
+; 3:1                ; 38 bits   ; 76 LEs        ; 38 LEs               ; 38 LEs                 ; Yes        ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg|out[8]      ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |LAB1_top|async_transmitter:ASYNC_TRANSMITTER|TxD_shift[0]                 ;
+; 3:1                ; 64 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|counter:cnt|out[26]      ;
+; 3:1                ; 25 bits   ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; Yes        ; |LAB1_top|async_transmitter:ASYNC_TRANSMITTER|BaudTickGen:tickgen|count[4] ;
+; 3:1                ; 25 bits   ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; Yes        ; |LAB1_top|async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen|count[4]       ;
+; 64:1               ; 16 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|registerFile:RF|Mux15    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |LAB1_top ;
++----------------+----------+----------------------------------------------+
+; Parameter Name ; Value    ; Type                                         ;
++----------------+----------+----------------------------------------------+
+; ClkFrequency   ; 50000000 ; Signed Integer                               ;
+; Baud           ; 115200   ; Signed Integer                               ;
+; Oversampling   ; 4        ; Signed Integer                               ;
+; WIDTH          ; 16       ; Signed Integer                               ;
+; OUT_WIDTH      ; 38       ; Signed Integer                               ;
++----------------+----------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LAB1_top_Controller:LAB1_TOP_CONTROLLER ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                              ;
+; OUT_WIDTH      ; 38    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                        ;
+; LENGTH         ; 64    ; Signed Integer                                        ;
+; OUT_WIDTH      ; 38    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                              ;
+; LENGTH         ; 64    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|registerFile:RF ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                                              ;
+; LENGTH         ; 64    ; Signed Integer                                                              ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|coefficients_Rom:CoeffRom ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                                                        ;
+; LENGTH         ; 64    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|counter:cnt ;
++----------------+-------+-------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                    ;
++----------------+-------+-------------------------------------------------------------------------+
+; LENGTH         ; 64    ; Signed Integer                                                          ;
++----------------+-------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_multiply:Smult ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_adder:Sadder ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg ;
++----------------+-------+--------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                     ;
++----------------+-------+--------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                                           ;
++----------------+-------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|sign_ext_6b:sngExt ;
++----------------+-------+--------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                           ;
++----------------+-------+--------------------------------------------------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                                                                 ;
++----------------+-------+--------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|CU:cu ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; resetSTATE     ; 000   ; Unsigned Binary                                             ;
+; start          ; 001   ; Unsigned Binary                                             ;
+; acceptInput    ; 010   ; Unsigned Binary                                             ;
+; calculation    ; 011   ; Unsigned Binary                                             ;
+; endProcess     ; 100   ; Unsigned Binary                                             ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: async_transmitter:ASYNC_TRANSMITTER ;
++----------------+----------+------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                 ;
++----------------+----------+------------------------------------------------------+
+; ClkFrequency   ; 50000000 ; Signed Integer                                       ;
+; Baud           ; 115200   ; Signed Integer                                       ;
+; Oversampling   ; 1        ; Signed Integer                                       ;
++----------------+----------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: async_transmitter:ASYNC_TRANSMITTER|BaudTickGen:tickgen ;
++----------------+----------+--------------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                                     ;
++----------------+----------+--------------------------------------------------------------------------+
+; ClkFrequency   ; 50000000 ; Signed Integer                                                           ;
+; Baud           ; 115200   ; Signed Integer                                                           ;
+; Oversampling   ; 1        ; Signed Integer                                                           ;
++----------------+----------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: async_receiver:ASYNC_RECEIVER ;
++----------------+----------+------------------------------------------------+
+; Parameter Name ; Value    ; Type                                           ;
++----------------+----------+------------------------------------------------+
+; ClkFrequency   ; 50000000 ; Signed Integer                                 ;
+; Baud           ; 115200   ; Signed Integer                                 ;
+; Oversampling   ; 4        ; Signed Integer                                 ;
++----------------+----------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen ;
++----------------+----------+--------------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                               ;
++----------------+----------+--------------------------------------------------------------------+
+; ClkFrequency   ; 50000000 ; Signed Integer                                                     ;
+; Baud           ; 115200   ; Signed Integer                                                     ;
+; Oversampling   ; 4        ; Signed Integer                                                     ;
++----------------+----------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_multiply:Smult|lpm_mult:Mult0 ;
++------------------------------------------------+------------+-----------------------------------------------------------------+
+; Parameter Name                                 ; Value      ; Type                                                            ;
++------------------------------------------------+------------+-----------------------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                                                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                                                    ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                                                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE                                                  ;
+; LPM_WIDTHA                                     ; 16         ; Untyped                                                         ;
+; LPM_WIDTHB                                     ; 15         ; Untyped                                                         ;
+; LPM_WIDTHP                                     ; 31         ; Untyped                                                         ;
+; LPM_WIDTHR                                     ; 31         ; Untyped                                                         ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                                                         ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                                                         ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                                                         ;
+; LATENCY                                        ; 0          ; Untyped                                                         ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped                                                         ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                                                         ;
+; USE_EAB                                        ; OFF        ; Untyped                                                         ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped                                                         ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                                                         ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                                                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K                                             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                                                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                                                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                                                         ;
+; CBXI_PARAMETER                                 ; mult_f1t   ; Untyped                                                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                                                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                                                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                                                         ;
++------------------------------------------------+------------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                                                       ;
++---------------------------------------+------------------------------------------------------------------------------+
+; Name                                  ; Value                                                                        ;
++---------------------------------------+------------------------------------------------------------------------------+
+; Number of entity instances            ; 1                                                                            ;
+; Entity Instance                       ; serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_multiply:Smult|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 16                                                                           ;
+;     -- LPM_WIDTHB                     ; 15                                                                           ;
+;     -- LPM_WIDTHP                     ; 31                                                                           ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                                                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                                           ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                                           ;
+;     -- USE_EAB                        ; OFF                                                                          ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                                         ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                                           ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                                           ;
++---------------------------------------+------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_adder:Sadder" ;
++------+-------+----------+---------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                       ;
++------+-------+----------+---------------------------------------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                                                  ;
++------+-------+----------+---------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Thu Oct 28 14:57:15 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LAB1_top -c LAB1_top
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file sign_ext_6b.v
+    Info (12023): Found entity 1: sign_ext_6b
+Info (12021): Found 1 design units, including 1 entities, in source file signed_multiply.v
+    Info (12023): Found entity 1: signed_multiply
+Info (12021): Found 1 design units, including 1 entities, in source file signed_adder.v
+    Info (12023): Found entity 1: signed_adder
+Info (12021): Found 1 design units, including 1 entities, in source file serialfirfilter.v
+    Info (12023): Found entity 1: serialFIRfilter
+Info (12021): Found 1 design units, including 1 entities, in source file registerfile.v
+    Info (12023): Found entity 1: registerFile
+Info (12021): Found 1 design units, including 1 entities, in source file register.v
+    Info (12023): Found entity 1: register
+Info (12021): Found 1 design units, including 1 entities, in source file lab1_top_controller.v
+    Info (12023): Found entity 1: LAB1_top_Controller
+Info (12021): Found 1 design units, including 1 entities, in source file lab1_top.v
+    Info (12023): Found entity 1: LAB1_top
+Info (12021): Found 1 design units, including 1 entities, in source file dp.v
+    Info (12023): Found entity 1: DP
+Info (12021): Found 1 design units, including 1 entities, in source file cu.v
+    Info (12023): Found entity 1: CU
+Info (12021): Found 1 design units, including 1 entities, in source file counter.v
+    Info (12023): Found entity 1: counter
+Info (12021): Found 1 design units, including 1 entities, in source file coefficient_rom.v
+    Info (12023): Found entity 1: coefficients_Rom
+Info (12021): Found 1 design units, including 1 entities, in source file baudtickgen.v
+    Info (12023): Found entity 1: BaudTickGen
+Info (12021): Found 1 design units, including 1 entities, in source file async_transmitter.v
+    Info (12023): Found entity 1: async_transmitter
+Info (12021): Found 1 design units, including 1 entities, in source file async_receiver.v
+    Info (12023): Found entity 1: async_receiver
+Warning (10222): Verilog HDL Parameter Declaration warning at LAB1_top_Controller.v(43): Parameter Declaration in module "LAB1_top_Controller" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Info (12127): Elaborating entity "LAB1_top" for the top level hierarchy
+Warning (10034): Output port "LEDR" at LAB1_top.v(6) has no driver
+Info (12128): Elaborating entity "LAB1_top_Controller" for hierarchy "LAB1_top_Controller:LAB1_TOP_CONTROLLER"
+Warning (10646): Verilog HDL Event Control warning at LAB1_top_Controller.v(103): posedge or negedge of vector "presentState_FIR" depends solely on its least-significant bit
+Warning (10646): Verilog HDL Event Control warning at LAB1_top_Controller.v(115): posedge or negedge of vector "presentState_TX" depends solely on its least-significant bit
+Warning (10235): Verilog HDL Always Construct warning at LAB1_top_Controller.v(136): variable "RXD" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at LAB1_top_Controller.v(137): variable "RX_reg" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at LAB1_top_Controller.v(137): variable "RXD" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10270): Verilog HDL Case Statement warning at LAB1_top_Controller.v(134): incomplete case statement has no default case item
+Info (10264): Verilog HDL Case Statement information at LAB1_top_Controller.v(134): all case item expressions in this case statement are onehot
+Warning (10240): Verilog HDL Always Construct warning at LAB1_top_Controller.v(131): inferring latch(es) for variable "RX_reg", which holds its previous value in one or more paths through the always construct
+Warning (10270): Verilog HDL Case Statement warning at LAB1_top_Controller.v(150): incomplete case statement has no default case item
+Warning (10235): Verilog HDL Always Construct warning at LAB1_top_Controller.v(162): variable "FIR_Output" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at LAB1_top_Controller.v(163): variable "FIR_Output" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10270): Verilog HDL Case Statement warning at LAB1_top_Controller.v(161): incomplete case statement has no default case item
+Info (10264): Verilog HDL Case Statement information at LAB1_top_Controller.v(161): all case item expressions in this case statement are onehot
+Warning (10240): Verilog HDL Always Construct warning at LAB1_top_Controller.v(158): inferring latch(es) for variable "TXD", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "TXD[0]" at LAB1_top_Controller.v(158)
+Info (10041): Inferred latch for "TXD[1]" at LAB1_top_Controller.v(158)
+Info (10041): Inferred latch for "TXD[2]" at LAB1_top_Controller.v(158)
+Info (10041): Inferred latch for "TXD[3]" at LAB1_top_Controller.v(158)
+Info (10041): Inferred latch for "TXD[4]" at LAB1_top_Controller.v(158)
+Info (10041): Inferred latch for "TXD[5]" at LAB1_top_Controller.v(158)
+Info (10041): Inferred latch for "TXD[6]" at LAB1_top_Controller.v(158)
+Info (10041): Inferred latch for "TXD[7]" at LAB1_top_Controller.v(158)
+Info (10041): Inferred latch for "RX_reg[0]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[1]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[2]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[3]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[4]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[5]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[6]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[7]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[8]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[9]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[10]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[11]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[12]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[13]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[14]" at LAB1_top_Controller.v(131)
+Info (10041): Inferred latch for "RX_reg[15]" at LAB1_top_Controller.v(131)
+Info (12128): Elaborating entity "serialFIRfilter" for hierarchy "serialFIRfilter:SERIAL_FIR_FILTER"
+Info (12128): Elaborating entity "DP" for hierarchy "serialFIRfilter:SERIAL_FIR_FILTER|DP:dp"
+Info (12128): Elaborating entity "registerFile" for hierarchy "serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|registerFile:RF"
+Info (12128): Elaborating entity "coefficients_Rom" for hierarchy "serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|coefficients_Rom:CoeffRom"
+Warning (10030): Net "coeffs.data_a" at coefficient_Rom.v(8) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "coeffs.waddr_a" at coefficient_Rom.v(8) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "coeffs.we_a" at coefficient_Rom.v(8) has no driver or initial value, using a default initial value '0'
+Info (12128): Elaborating entity "counter" for hierarchy "serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|counter:cnt"
+Info (12128): Elaborating entity "signed_multiply" for hierarchy "serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_multiply:Smult"
+Info (12128): Elaborating entity "signed_adder" for hierarchy "serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_adder:Sadder"
+Info (12128): Elaborating entity "register" for hierarchy "serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|register:Reg"
+Info (12128): Elaborating entity "sign_ext_6b" for hierarchy "serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|sign_ext_6b:sngExt"
+Info (12128): Elaborating entity "CU" for hierarchy "serialFIRfilter:SERIAL_FIR_FILTER|CU:cu"
+Info (12128): Elaborating entity "async_transmitter" for hierarchy "async_transmitter:ASYNC_TRANSMITTER"
+Info (12128): Elaborating entity "BaudTickGen" for hierarchy "async_transmitter:ASYNC_TRANSMITTER|BaudTickGen:tickgen"
+Warning (10230): Verilog HDL assignment warning at BaudTickGen.v(15): truncated value with size 32 to match size of target (25)
+Info (12128): Elaborating entity "async_receiver" for hierarchy "async_receiver:ASYNC_RECEIVER"
+Warning (10235): Verilog HDL Always Construct warning at async_receiver.v(51): variable "RxD_state" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at async_receiver.v(56): variable "count" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10230): Verilog HDL assignment warning at async_receiver.v(56): truncated value with size 32 to match size of target (2)
+Warning (10240): Verilog HDL Always Construct warning at async_receiver.v(49): inferring latch(es) for variable "count", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at async_receiver.v(49): inferring latch(es) for variable "cout", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "cout" at async_receiver.v(61)
+Info (10041): Inferred latch for "count[0]" at async_receiver.v(54)
+Info (10041): Inferred latch for "count[1]" at async_receiver.v(54)
+Info (12128): Elaborating entity "BaudTickGen" for hierarchy "async_receiver:ASYNC_RECEIVER|BaudTickGen:tickgen"
+Warning (10230): Verilog HDL assignment warning at BaudTickGen.v(15): truncated value with size 32 to match size of target (25)
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_multiply:Smult|Mult0"
+Info (12130): Elaborated megafunction instantiation "serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_multiply:Smult|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "serialFIRfilter:SERIAL_FIR_FILTER|DP:dp|signed_multiply:Smult|lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "16"
+    Info (12134): Parameter "LPM_WIDTHB" = "15"
+    Info (12134): Parameter "LPM_WIDTHP" = "31"
+    Info (12134): Parameter "LPM_WIDTHR" = "31"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_f1t.tdf
+    Info (12023): Found entity 1: mult_f1t
+Warning (13012): Latch LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_2_TX
+Warning (13012): Latch LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_2_TX
+Warning (13012): Latch LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_2_TX
+Warning (13012): Latch LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_2_TX
+Warning (13012): Latch LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_2_TX
+Warning (13012): Latch LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_2_TX
+Warning (13012): Latch LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_2_TX
+Warning (13012): Latch LAB1_top_Controller:LAB1_TOP_CONTROLLER|TXD[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX.send_2_TX
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND
+    Warning (13410): Pin "LEDR[4]" is stuck at GND
+    Warning (13410): Pin "LEDR[5]" is stuck at GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
+    Warning (13410): Pin "LEDR[7]" is stuck at GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[9]" is stuck at GND
+    Warning (13410): Pin "LEDR[10]" is stuck at GND
+    Warning (13410): Pin "LEDR[11]" is stuck at GND
+    Warning (13410): Pin "LEDR[12]" is stuck at GND
+    Warning (13410): Pin "LEDR[13]" is stuck at GND
+    Warning (13410): Pin "LEDR[14]" is stuck at GND
+    Warning (13410): Pin "LEDR[15]" is stuck at GND
+Info (17049): 22 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/iman/Desktop/LAB1/output_files/LAB1_top.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[0]"
+    Warning (15610): No output dependent on input pin "SW[1]"
+    Warning (15610): No output dependent on input pin "SW[2]"
+    Warning (15610): No output dependent on input pin "SW[3]"
+Info (21057): Implemented 2135 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 17 output pins
+    Info (21061): Implemented 2109 logic cells
+    Info (21062): Implemented 2 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 63 warnings
+    Info: Peak virtual memory: 4616 megabytes
+    Info: Processing ended: Thu Oct 28 14:57:22 2021
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:06
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/iman/Desktop/LAB1/output_files/LAB1_top.map.smsg.
+
+

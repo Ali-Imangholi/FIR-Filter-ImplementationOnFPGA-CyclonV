@@ -1,0 +1,28 @@
+
+State Machine - |LAB1_top|serialFIRfilter:SERIAL_FIR_FILTER|CU:cu|presentState
+Name presentState.calculation presentState.acceptInput presentState.start presentState.resetSTATE presentState.endProcess 
+presentState.resetSTATE 0 0 0 0 0 
+presentState.start 0 0 1 1 0 
+presentState.acceptInput 0 1 0 1 0 
+presentState.calculation 1 0 0 1 0 
+presentState.endProcess 0 0 0 1 1 
+
+State Machine - |LAB1_top|LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_TX
+Name presentState_TX.wait_1_TX presentState_TX.send_2_TX presentState_TX.send_1_TX presentState_TX.idel_TX 
+presentState_TX.idel_TX 0 0 0 0 
+presentState_TX.send_1_TX 0 0 1 1 
+presentState_TX.send_2_TX 0 1 0 1 
+presentState_TX.wait_1_TX 1 0 0 1 
+
+State Machine - |LAB1_top|LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_FIR
+Name presentState_FIR.idel_FIR presentState_FIR.calculation_FIR presentState_FIR.inputValidation_FIR 
+presentState_FIR.idel_FIR 0 0 0 
+presentState_FIR.inputValidation_FIR 1 0 1 
+presentState_FIR.calculation_FIR 1 1 0 
+
+State Machine - |LAB1_top|LAB1_top_Controller:LAB1_TOP_CONTROLLER|presentState_RX
+Name presentState_RX.wait_1_RX presentState_RX.recive_2_RX presentState_RX.recive_1_RX presentState_RX.idel_RX 
+presentState_RX.idel_RX 0 0 0 0 
+presentState_RX.recive_1_RX 0 0 1 1 
+presentState_RX.recive_2_RX 0 1 0 1 
+presentState_RX.wait_1_RX 1 0 0 1 
